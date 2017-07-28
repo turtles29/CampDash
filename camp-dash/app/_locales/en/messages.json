@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "camp-dash",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Dashboard for Free Code Campers.",
+    "description": "The description of the application"
+  }
+}
