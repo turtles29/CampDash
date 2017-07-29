@@ -7,7 +7,7 @@
 
     <title>CampDash</title>
     <!--css link  -->
-
+    <link rel="stylesheet" href="./styles/dashboard.css">
     <!--Fonts  -->
 
     <!--Font Awesome  -->
@@ -18,67 +18,73 @@
     <!-- ======     Search Widget    ======  -->
         <!--Search feature that uses google search -->
         <div id="search-container">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <form id="search-bar">
-	            <input type="search" placeholder="Search">
+            <form id="search-bar" action='http://google.com/search' target='_blank'>
+              <i class="fa fa-search" aria-hidden="true"></i>
+	            <input id='input-search' name='q' type="text" placeholder="Search" autocomplete="off">
             </form>
         </div>
-    <!-- ======     Weather Widget    ======  -->    
+
+    <!-- ======     Weather Widget    ======  -->
         <div id="weather-container">
-            <div id="weather-icon">
-                <i class="fa fa-sun-o" aria-hidden="true"></i>
-            </div>
-            <div id="weather-value">
-                <h3>79°</h3>
-            </div>
+                <i class="fa fa-sun-o" aria-hidden="true"></i><span id='weather-value'> 79°</span>
             <div id="location">
-                <h3>Seattle</h3>
+                Seattle
             </div>
         </div>
-    
+
     <!-- ======     Center Time, Greeting, and Focus Widget    ======  -->
         <div id="greeting-container">
-            <h1>7:01</h1>
-            <h2>Good Evening, Name</h2>
+            <h1 id='time'></h1>
+            <h2 id='#greeting-wrap'><span id='greeting'></span>, <span id='username'>name</span></h2>
             <h3>What is your main focus today?</h3>
-            <input type="text" id="focus-text"/>
-            <h3>Today</h3>
-            <ol>
-                <li>Finish Project</li>
-            </ol>
+            <div id='focus-container'>
+              <form id="focus-form" onsubmit="newFocus(); return false;">
+                <input type="text" id="focus-text"/>
+                <div id="focusLi">
+                  <input id='focusCheck' type='checkbox' autocomplete='off' />
+                  <label id='focus-label' for='#focusCheck'><i class='fa fa-close' onclick='resetFocus()'></i></label>
+                </div>
+              </form>
+            </div>
 
         </div>
-    
-    <!-- ======     Settings Widget    ======  -->  
-        
+
+    <!-- ======     Settings Widget    ======  -->
+
         <!--This section would have toggle buttons that hide/unhide the other widgets.  -->
 
         <div id="settings-container">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-            <h4>Show</h4>    
-                <ul>
-                    <li>Weather</li>
-                    <li>Todo</li>
-                    <li>Quotes</li>
-                </ul>
+            <i id='settings-cog' class="fa fa-cog" aria-hidden="true"></i>
+            <div id="settings-data">
+              <ul>
+                  <li>Weather</li>
+                  <li>Todo</li>
+                  <li>Quotes</li>
+              </ul>
+            </div>
         </div>
-    
+
     <!-- ======     Quote Generator Widget    ======  -->
     <div id="quote-container">
-		<p id="quote">This is the quote</p>
-		<p id="author">This is the author</p>
-	</div>
+      <p id="quote">This is the quote</p>
+      <p id="author">This is the author</p>
+	  </div>
 
-    <!-- ======     Todo Widget    ======  -->   
-    
-        <div id="todo-conatiner">
-            <h3>Todo</h3>
-            <input id="newTodo" placeholder="Enter A Todo"/>
-        </div>
+    <!-- ======     Todo Widget    ======  -->
 
-	
-	
-	<!-- ======     Javascript link    ======  -->   
-	<script type='text/javascript' src='scripts/dashboard.js'></script>
+    <div id="todo-container">
+      <h3>Todo</h3>
+      <input id="newTodo" placeholder="Enter A Todo"/>
+    </div>
+
+
+
+	<!-- ======     Javascript link    ======  -->
+	<script type='text/javascript' src='scripts/dashboard/dashboard.js'></script>
+  <script type='text/javascript' src='scripts/dashboard/weather.js'></script>
+  <script type='text/javascript' src='scripts/dashboard/center.js'></script>
+  <script type='text/javascript' src='scripts/dashboard/settings.js'></script>
+  <script type='text/javascript' src='scripts/dashboard/quote.js'></script>
+  <script type='text/javascript' src='scripts/dashboard/todo.js'></script>
 </body>
 </html>
