@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>CampDash</title>
-  </head>
-  <body>
-    <h1>CampDash</h1>
-  </body>
+    <!--css link  -->
+
+    <!--Fonts  -->
+
+    <!--Font Awesome  -->
+    <script src="https://use.fontawesome.com/5bdc1a622a.js"></script>
+
+</head>
+<body>
+    <!-- ======     Search Widget    ======  -->
+        <!--Search feature that uses google search -->
+        <div id="search-container">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <form id="search-bar">
+	            <input type="search" placeholder="Search">
+            </form>
+        </div>
+    <!-- ======     Weather Widget    ======  -->    
+        <div id="weather-container">
+            <div id="weather-icon">
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
+            </div>
+            <div id="weather-value">
+                <h3>79°</h3>
+            </div>
+            <div id="location">
+                <h3>Seattle</h3>
+            </div>
+        </div>
+    
+    <!-- ======     Center Time, Greeting, and Focus Widget    ======  -->
+        <div id="greeting-container">
+            <h1>7:01</h1>
+            <h2>Good Evening, Name</h2>
+            <h3>What is your main focus today?</h3>
+            <input type="text" id="focus-text"/>
+            <h3>Today</h3>
+            <ol>
+                <li>Finish Project</li>
+            </ol>
+
+        </div>
+    
+    <!-- ======     Settings Widget    ======  -->  
+        
+        <!--This section would have toggle buttons that hide/unhide the other widgets.  -->
+
+        <div id="settings-container">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <h4>Show</h4>    
+                <ul>
+                    <li>Weather</li>
+                    <li>Todo</li>
+                    <li>Quotes</li>
+                </ul>
+        </div>
+    
+    <!-- ======     Quote Generator Widget    ======  -->
+    <div id="quote-container">
+		<p id="quote">This is the quote</p>
+		<p id="author">This is the author</p>
+	</div>
+
+    <!-- ======     Todo Widget    ======  -->   
+    
+        <div id="todo-conatiner">
+            <h3>Todo</h3>
+            <input id="newTodo" placeholder="Enter A Todo"/>
+        </div>
+
+</body>
 </html>
