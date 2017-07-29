@@ -1,4 +1,4 @@
-// generated on 2017-07-28 using generator-chrome-extension 0.6.1
+// generated on 2017-07-29 using generator-chrome-extension 0.6.1
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import del from 'del';
@@ -11,7 +11,6 @@ gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
     'app/_locales/**',
-    '!app/scripts.babel',
     '!app/*.json',
     '!app/*.html',
     '!app/styles.scss'
@@ -29,9 +28,9 @@ function lint(files, options) {
   };
 }
 
-gulp.task('lint', lint('app/scripts.babel/**/*.js', {
+gulp.task('lint', lint('app/scripts/**/*.js', {
   env: {
-    es6: true
+    es6: false
   }
 }));
 
@@ -90,17 +89,9 @@ gulp.task('chromeManifest', () => {
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('babel', () => {
-  return gulp.src('app/scripts.babel/**/*.js')
-      .pipe($.babel({
-        presets: ['es2015']
-      }))
-      .pipe(gulp.dest('app/scripts'));
-});
-
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('watch', ['lint', 'babel'], () => {
+gulp.task('watch', ['lint'], () => {
   $.livereload.listen();
 
   gulp.watch([
@@ -111,7 +102,7 @@ gulp.task('watch', ['lint', 'babel'], () => {
     'app/_locales/**/*.json'
   ]).on('change', $.livereload.reload);
 
-  gulp.watch('app/scripts.babel/**/*.js', ['lint', 'babel']);
+  gulp.watch('app/scripts/**/*.js', ['lint']);
   gulp.watch('app/styles.scss/**/*.scss', ['styles']);
   gulp.watch('bower.json', ['wiredep']);
 });
@@ -137,7 +128,7 @@ gulp.task('package', function () {
 
 gulp.task('build', (cb) => {
   runSequence(
-    'lint', 'babel', 'chromeManifest',
+    'lint', 'chromeManifest',
     ['html', 'images', 'extras'],
     'size', cb);
 });
