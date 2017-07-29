@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$mainFont: 'Roboto', sans-serif;
+
+* {
+  font-family: $mainFont;
+}
+
+#weather-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#greeting-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#settings-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#todo-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#quote-container{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Page styles ( for generally applied styling )
+i {
+  cursor: pointer;
+}
+
+// Search Styles
+
+
+// Weather Styles
+
+
+// Center Time, Greeting, and Focus Styles
+#greeting-container {
+  text-align: center;
+}
+
+#focusLi {
+  display: none;
+}
+
+// Settings Styles
+#settings-cog {
+  cursor: pointer;
+}
+
+#settings-data {
+  display: none;
+}
+
+// Quote Generator Styles
+
+
+// Todo Widget
