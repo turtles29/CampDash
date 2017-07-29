@@ -20,3 +20,4 @@ connection.onmessage = function (e) {
     }
   }
 };
+
