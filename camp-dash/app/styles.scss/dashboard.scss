@@ -5,6 +5,11 @@ $mainFont: 'Roboto', sans-serif;
   font-family: $mainFont;
 }
 
+body {
+  padding: 20px;
+  display: none;
+}
+
 #weather-container {
   position: absolute;
   top: 0;
@@ -52,6 +57,10 @@ i {
 // Center Time, Greeting, and Focus Styles
 #greeting-container {
   text-align: center;
+}
+
+#focus-input {
+  display: none;
 }
 
 #focusLi {

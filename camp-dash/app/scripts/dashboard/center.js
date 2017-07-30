@@ -38,32 +38,39 @@ function getName() {
 getName();
 
 // Focus stuff
-function focusLoad(target) {
-  let oldFocus = localStorage.getItem('focus');
-  if (!(oldFocus == '')) {
-    target.innerHTML = `
-    <input id='focusCheck' type='checkbox' autocomplete='off' />
-    <label for='#focusCheck'>${oldFocus} <i class='fa fa-close' onclick='resetFocus()'></i></label>
-    `;
+const focusForm = document.querySelector('#focus-form');
+const focusInput = document.querySelector('#focus-input');
+const focusContainer = document.querySelector('#focusLi');
+const focusCheckbox = document.querySelector('#focusCheck');
+const focusLabel = document.querySelector('#focus-label');
+const focusClose = document.querySelector('#close-button');
+
+$(document).ready(function() {
+  let savedFocus = localStorage.getItem('focus');
+  if (!(savedFocus == '' || savedFocus == null)) {
+    focusContainer.style.display = 'inline-block';
+    focusLabel.innerHTML = (savedFocus + ' ');
+
+  } else {
+    focusInput.style.display = 'inline-block';
   }
-}
-focusLoad(document.querySelector('#focus-form'));
+})
 
-function newFocus() {
-  let focusSrc = document.querySelector('#focus-text'),
-  myFocus = focusSrc.value;
-  localStorage.setItem('focus', myFocus);
-  myFocus = localStorage.getItem('focus');
-  focusSrc.style.display = 'none';
+focusForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  localStorage.setItem('focus', focusInput.value);
 
-  let target = document.querySelector('#focus-label');
-  document.querySelector('#focusLi').style.display = 'inline-block';
-  target.innerHTML = myFocus + ' <i class="fa fa-close" onclick="resetFocus()"></i></label>';
-}
+  let focus = localStorage.getItem('focus');
+  focusLabel.innerHTML = (focus + ' ');
 
-function resetFocus() {
-  let target = document.querySelector('#focus-form');
+  // change form
+  focusInput.style.display = 'none';
+  focusContainer.style.display = 'inline-block';
+});
+
+focusClose.addEventListener('click', function(e) {
   localStorage.setItem('focus', '');
-  target.innerHTML = '<input type="text" id="focus-text"/>';
 
-}
+  focusContainer.style.display = 'none';
+  focusInput.style.display = 'inline-block';
+});

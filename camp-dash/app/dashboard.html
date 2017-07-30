@@ -11,7 +11,7 @@
     <!--Fonts  -->
 
     <!--Font Awesome  -->
-    <script src="https://use.fontawesome.com/5bdc1a622a.js"></script>
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.css">
 
 </head>
 <body>
@@ -38,11 +38,11 @@
             <h2 id='#greeting-wrap'><span id='greeting'></span>, <span id='username'>name</span></h2>
             <h3>What is your main focus today?</h3>
             <div id='focus-container'>
-              <form id="focus-form" onsubmit="newFocus(); return false;">
-                <input type="text" id="focus-text"/>
+              <form id="focus-form">
+                <input type="text" id="focus-input"/>
                 <div id="focusLi">
                   <input id='focusCheck' type='checkbox' autocomplete='off' />
-                  <label id='focus-label' for='#focusCheck'><i class='fa fa-close' onclick='resetFocus()'></i></label>
+                  <label id='focus-label' for='#focusCheck'></label><i id='close-button' class='fa fa-close'></i>
                 </div>
               </form>
             </div>
@@ -78,6 +78,8 @@
     </div>
 
 
+  <!-- =====    jQuery link    ===== -->
+  <script type='text/javascript' src='./jquery/jquery.js'></script>
 
 	<!-- ======     Javascript link    ======  -->
 	<script type='text/javascript' src='scripts/dashboard/dashboard.js'></script>
