@@ -58,12 +58,12 @@ function newFocus() {
 
   let target = document.querySelector('#focus-label');
   document.querySelector('#focusLi').style.display = 'inline-block';
-  target.innerHTML = myFocus + ` <i class='fa fa-close' onclick='resetFocus()'></i></label>`;
+  target.innerHTML = myFocus + ' <i class="fa fa-close" onclick="resetFocus()"></i></label>';
 }
 
 function resetFocus() {
   let target = document.querySelector('#focus-form');
   localStorage.setItem('focus', '');
-  target.innerHTML = `<input type="text" id="focus-text"/>`;
+  target.innerHTML = '<input type="text" id="focus-text"/>';
 
 }
