@@ -19,6 +19,43 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: 1%;
+  margin-left: 1%;
+    input {
+    border: solid 1px #ccc;
+    padding: 9px 7px;
+    width: 45px;
+    color: transparent;
+    cursor: pointer;
+    font-size: 100%;
+    outline: none;
+    
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    
+    -webkit-transition: all .7s;
+    -moz-transition: all .7s;
+    transition: all .7s;
+
+    font-family: 'FontAwesome';
+      .element:before{
+      font-family: FontAwesome;
+      content: "\f002";
+      position: relative;
+      left: -5px;
+    }
+      &:hover{
+      background-color: #fff;
+    }
+    &:focus{
+    width: 160px;
+    padding-left: 10%;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+    }
+  }
 }
 #greeting-container {
   position: absolute;
