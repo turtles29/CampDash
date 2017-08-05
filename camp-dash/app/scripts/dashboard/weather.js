@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 var latitude;
 var longitude;
 var coordinates;
@@ -19,7 +19,7 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-    coordinates= latitude + ',' + longitude;
+    coordinates = latitude + ',' + longitude;
   }
 
 
@@ -30,3 +30,4 @@ function geoFindMe() {
 
  navigator.geolocation.getCurrentPosition(success, error);
 }
+*/
