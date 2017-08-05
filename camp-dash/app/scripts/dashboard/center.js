@@ -3,18 +3,19 @@
 // Clock stuff
 function updateClock() {
   let now = new Date(),
-  time = [now.getHours(), now.getMinutes(), now.getSeconds()],
+  time = [now.getHours(), now.getMinutes()/*, now.getSeconds()*/];
+  time = time.map((unit) => unit = unit < 10 ? `0${unit}` : `${unit}`);
 
-  currentTime = time.join(':'),
+  let currentTime = time.join(':'),
   clockLocation = document.querySelector('#time'),
 
   greeting = document.querySelector('#greeting');
   if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) {
-    greeting.innerHTML = 'Good Morning';
+    greeting.innerHTML = 'Good morning';
   } else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) {
-    greeting.innerHTML = 'Good Afternoon';
+    greeting.innerHTML = 'Good afternoon';
   } else {
-    greeting.innerHTML = 'Good Evening'
+    greeting.innerHTML = 'Good evening'
   }
 
   clockLocation.innerText = currentTime;

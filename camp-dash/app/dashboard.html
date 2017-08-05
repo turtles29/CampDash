@@ -14,12 +14,13 @@
     <link rel="stylesheet" href="./font-awesome/css/font-awesome.css">
 
 </head>
-<body>
+<body class='bg'>
+  <div class="container">
     <!-- ======     Search Widget    ======  -->
         <!--Search feature that uses google search -->
         <div id="search-container">
             <form id="search-bar" action='http://google.com/search' target='_blank'>
-	            <input id='input-search' name='q' type="search" placeholder="&#xf002;" autocomplete="off">
+	            <i style='color: black;' class='fa fa-search'></i><input id='input-search' name='q' type="search" autocomplete="off">
             </form>
         </div>
 
@@ -27,18 +28,18 @@
         <div id="weather-container">
                 <i class="fa fa-sun-o" aria-hidden="true"></i><span id='weather-value'> 79°</span>
             <div id="location">
-                <p id="dispCity">Seattle</p>
+                <span id="dispCity">Seattle</span>
             </div>
         </div>
 
     <!-- ======     Center Time, Greeting, and Focus Widget    ======  -->
         <div id="greeting-container">
-            <h1 id='time'></h1>
-            <h2 id='#greeting-wrap'><span id='greeting'></span>, <span id='username'>name</span></h2>
-            <h3>What is your main focus today?</h3>
+            <span id='time'></span>
+            <span id='greeting-wrap'><span id='greeting'></span>, <span id='username'>name</span></span>
             <div id='focus-container'>
+              <span id='focus-prompt'>What is your main focus today?</span>
               <form id="focus-form">
-                <input type="text" id="focus-input"/>
+                <input type="text" id="focus-input" autocomplete="off" />
                 <div id="focusLi">
                   <input id='focusCheck' type='checkbox' autocomplete='off' />
                   <label id='focus-label' for='#focusCheck'></label><i id='close-button' class='fa fa-close'></i>
@@ -72,11 +73,13 @@
     <!-- ======     Todo Widget    ======  -->
 
     <div id="todo-container">
-      <h3>Todo</h3>
-      <input id="newTodo" placeholder="Enter A Todo"/>
+      <span>Todo</span>
+      <div class="todo-popup">
+        <input id="newTodo" placeholder="Enter A Todo"/>
+      </div>
     </div>
 
-
+  </div>
   <!-- =====    jQuery link    ===== -->
   <script type='text/javascript' src='./jquery/jquery.js'></script>
 
