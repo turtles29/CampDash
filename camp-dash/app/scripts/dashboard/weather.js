@@ -33,7 +33,7 @@ function geoFindMe() {
 //init after coordinates are recieved
 
 function init() {
-  var api = 'http://api.openweathermap.org/data/2.5/weather?';
+  var api = 'https://api.openweathermap.org/data/2.5/weather?';
   var key = '&appid=c206c23ffceb3192352454f2000a0b75';
   var lat = 'lat=' + latitude;
   var lon = 'lon=' + longitude;
@@ -48,7 +48,6 @@ function init() {
      function getWeather() {
     $.ajax({
       url: urlFromIP,
-      dataType: 'jsonp',
       success: function(parsed_json) {
         tempF = parsed_json.main.temp;
         $('#weather-value').text(Math.round(tempF) + '°');
