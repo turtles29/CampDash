@@ -3,6 +3,7 @@
 var latitude;
 var longitude;
 var tempF;
+var weatherId;
   
 window.onload = function() {
 	geoFindMe();
@@ -50,7 +51,9 @@ function init() {
       url: urlFromIP,
       success: function(parsed_json) {
         tempF = parsed_json.main.temp;
+        weatherId = (parsed_json.weather[0].id);
         $('#weather-value').text(Math.round(tempF) + '°');
+        getIcon(weatherId);
       }
     });
   }
@@ -90,4 +93,18 @@ function init() {
   //close init
 } 
 
- 
+function getIcon(weatherId) {
+  if (weatherId > 199 && weatherId < 233) {
+		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/thunderstorm.svg"/>');
+	} else if (weatherId > 299 && weatherId < 322) {
+		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/drizzle.svg"/>');
+	} else if (weatherId > 499 && weatherId < 532) {
+		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/rain.svg"/>');
+	} else if (weatherId > 599 && weatherId < 623) {
+		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/snow.svg"/>');
+	} else if (weatherId === 800) {
+		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/clear.svg"/>');
+	} else if (weatherId > 800 && weatherId < 805 ) {
+    $('#weather-container').prepend('<img id="weather-icon" src="images/icons/Cloud.svg"/>');
+  }
+}
