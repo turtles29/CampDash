@@ -9,10 +9,13 @@ $mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 body, html {
   height: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  display: none;
+  opacity: 0;
+  transition: 1s;
 }
 
 .container {
@@ -22,9 +25,6 @@ body {
 
 .bg {
   height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #weather-container {
@@ -43,7 +43,7 @@ body {
     input {
     border: solid 1px #ccc;
     padding: 9px 7px;
-    width: 38px;
+    width: 35px;
     color: transparent;
     cursor: pointer;
     font-size: 100%;
@@ -68,7 +68,7 @@ body {
     }
     &:focus{
     width: 200px;
-    padding-left: 17%;
+    padding-left: 15%;
     color: #000;
     background-color: #fff;
     cursor: auto;
@@ -108,15 +108,18 @@ body {
 .fa-search {
   pointer-events: none;
   position: relative;
-  left: 25px;
+  left: 23px;
 }
 
 // Weather Styles
-
+#dispCity {
+  color: #444;
+}
 
 // Center Time, Greeting, and Focus Styles
 #greeting-container {
   text-align: center;
+  text-shadow: 0 10px 60px rgba(0,0,0,0.7);
 }
 
 #greeting-wrap {
