@@ -4,12 +4,18 @@ var latitude;
 var longitude;
 var tempF;
 var weatherId;
-  
+
+//checks to see if geolocation is stored in local storage
 window.onload = function() {
-	geoFindMe();
+  if (localStorage.getItem('lat') === null){
+    geoFindMe();
+  } else {
+    init();
+  }
+
 };
 
-//geoFindme is the geolocation; will check for coordinates
+//geoFindme is the geolocation; will retrieve coordinates
 function geoFindMe() {
 
   if (!navigator.geolocation){
@@ -18,8 +24,12 @@ function geoFindMe() {
   }
 
   function success(position) {
-    latitude  = position.coords.latitude;
-    longitude = position.coords.longitude;
+   
+    //longitude = position.coords.longitude;
+    localStorage.setItem('lat',position.coords.latitude);
+    localStorage.setItem('lon',position.coords.longitude);
+    //latitude  = localStorage.getItem('lat');
+   
     init();
   }
 
@@ -36,8 +46,8 @@ function geoFindMe() {
 function init() {
   var api = 'https://api.openweathermap.org/data/2.5/weather?';
   var key = '&appid=c206c23ffceb3192352454f2000a0b75';
-  var lat = 'lat=' + latitude;
-  var lon = 'lon=' + longitude;
+  var lat = 'lat=' +  localStorage.getItem('lat');
+  var lon = 'lon=' + localStorage.getItem('lon');
   var unitImp = '&units=imperial'
   var urlFromIP = api + lat + '&' + lon + key + unitImp;
 
@@ -63,7 +73,7 @@ function init() {
         var cityName;
 
         $.ajax({
-          url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude,
+          url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + localStorage.getItem('lat') + ',' + localStorage.getItem('lon'),
           data: {},
           success: function(data) {
 
