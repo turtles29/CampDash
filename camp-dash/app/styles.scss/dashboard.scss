@@ -33,6 +33,13 @@ body {
   right: 0;
   padding-top: 1%;
   padding-right: 1%;
+  font-size: 120%;
+  img{
+    filter: invert(100%);
+    -webkit-filter: invert(100%); 
+    width: 35px;
+  }
+  
 }
 #search-container {
   position: absolute;
@@ -113,7 +120,7 @@ body {
 
 // Weather Styles
 #dispCity {
-  color: #444;
+  color: white;
 }
 
 // Center Time, Greeting, and Focus Styles
