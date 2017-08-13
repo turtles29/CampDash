@@ -28,18 +28,23 @@ body {
 }
 
 #weather-container {
+  text-align: left;
+  text-shadow: 2px 2px 50px black;
   position: absolute;
   top: 0;
   right: 0;
   padding-top: 1%;
   padding-right: 1%;
-  font-size: 120%;
-  img{
+  svg, img {
     filter: invert(100%);
-    -webkit-filter: invert(100%); 
-    width: 35px;
+    -webkit-filter: invert(100%);
+    display: inline-block;
+    width: 25px;
+    max-width: 100%;
+    max-height:300px;
+    height: auto;
   }
-  
+
 }
 #search-container {
   position: absolute;
@@ -104,9 +109,10 @@ body {
 }
 #quote-container{
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
+  transition: bottom .3s;
 }
 
 // Page styles ( for generally applied styling )
@@ -119,8 +125,12 @@ body {
 }
 
 // Weather Styles
+#weather-value {
+  font-size: 30px;
+}
+
 #dispCity {
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 // Center Time, Greeting, and Focus Styles
@@ -212,10 +222,17 @@ body {
 }
 
 // Quote Generator Styles
-#author {
-  display: none;
+#quote {
+  font-size: 15px;
+  text-shadow: 2px 2px 20px black;
+  text-align: center;
 }
 
+#author {
+  font-size: 13px;
+  text-shadow: 2px 2px 20px black;
+  text-align: center;
+}
 // Todo Widget
 .todo-popup {
   display: none;

@@ -24,12 +24,12 @@ function geoFindMe() {
   }
 
   function success(position) {
-   
+
     //longitude = position.coords.longitude;
     localStorage.setItem('lat',position.coords.latitude);
     localStorage.setItem('lon',position.coords.longitude);
     //latitude  = localStorage.getItem('lat');
-   
+
     init();
   }
 
@@ -55,7 +55,7 @@ function init() {
     getWeather();
     getCity();
 
-    //Get weather by using open weather map api 
+    //Get weather by using open weather map api
      function getWeather() {
     $.ajax({
       url: urlFromIP,
@@ -87,12 +87,12 @@ function init() {
                         else {
                             $('#dispCity').html('unknown');
                         }
-                        
+
                     }
                 });
             });
-          
-  
+
+
           }
         });
   }
@@ -101,7 +101,7 @@ function init() {
   });
 
   //close init
-} 
+}
 
 function getIcon(weatherId) {
   if (weatherId > 199 && weatherId < 233) {
