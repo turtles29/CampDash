@@ -34,9 +34,13 @@ function handleErr(jqxhr, textStatus, err) {
 loadQuote();
 
 quoteContainer.addEventListener('mouseover', function() {
-  quoteContainer.style.bottom = 0;
+  quoteTar.style.bottom = '5px';
+  authorTar.style.bottom = '15px';
+  authorTar.style.opacity = 1;
 });
 
 quoteContainer.addEventListener('mouseleave', function() {
-  quoteContainer.style.bottom = '-30px';
+  quoteTar.style.bottom = 0;
+  authorTar.style.bottom = '35px';
+  authorTar.style.opacity = 0;
 });
