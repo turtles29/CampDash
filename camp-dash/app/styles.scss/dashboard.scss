@@ -114,45 +114,45 @@ body {
       margin: auto;
       td{
         padding: 3px 15px;
-      } 
+      }
     }
     .onoffswitch {
-    position: relative; 
+    position: relative;
     width: 40px;
-    -webkit-user-select:none; 
-    -moz-user-select:none; 
+    -webkit-user-select:none;
+    -moz-user-select:none;
     -ms-user-select: none;
     }
     .onoffswitch-checkbox {
         display: none;
     }
     .onoffswitch-label {
-        display: block; 
-        overflow: hidden; 
+        display: block;
+        overflow: hidden;
         cursor: pointer;
-        height: 21px; 
-        padding: 0; 
+        height: 21px;
+        padding: 0;
         line-height: 21px;
-        border: 2px solid #5A7063; 
+        border: 2px solid #5A7063;
         border-radius: 21px;
         background-color: #5A7063;
         transition: background-color 0.3s ease-in;
         &:before {
           content: "";
-          display: block; 
-          width: 21px; 
+          display: block;
+          width: 21px;
           margin: 0px;
           background: #FFFFFF;
-          position: absolute; 
-          top: 0; 
+          position: absolute;
+          top: 0;
           bottom: 0;
           right: 17px;
-          border: 2px solid #5A7063; 
+          border: 2px solid #5A7063;
           border-radius: 21px;
-          transition: all 0.3s ease-in 0s; 
+          transition: all .2s ease-in 0s;
         }
     }
-   
+
     .onoffswitch-checkbox:checked + .onoffswitch-label {
         background-color: #616161;
     }
@@ -160,7 +160,7 @@ body {
       border-color: #D2E9FC;
     }
     .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-        right: 0px; 
+        right: 0px;
     }
   }
 }
@@ -173,10 +173,9 @@ body {
 }
 #quote-container{
   position: absolute;
-  bottom: -30px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  transition: bottom .3s;
 }
 
 // Page styles ( for generally applied styling )
@@ -290,12 +289,19 @@ body {
   font-size: 15px;
   text-shadow: 2px 2px 20px black;
   text-align: center;
+  position: relative;
+  bottom: 0;
+  transition: 0.2s;
 }
 
 #author {
   font-size: 13px;
   text-shadow: 2px 2px 20px black;
   text-align: center;
+  position: relative;
+  bottom: 35px;
+  opacity: 0;
+  transition: 0.2s;
 }
 // Todo Widget
 .todo-popup {

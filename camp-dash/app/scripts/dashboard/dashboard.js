@@ -15,7 +15,7 @@ if (hr <= 4 || hr >= 22) {
 } else if (hr >= 8 && hr < 12) {
   timeOfDay = 'morning';
 } else if (hr >= 12 && hr < 16) {
-  timeOfDay = 'afternoon';
+  timeOfDay = 'ocean';
 } else if (hr >= 16 && hr < 19) {
   timeOfDay = 'evening';
 } else if (hr >= 19 && hr < 22) {

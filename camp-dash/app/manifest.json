@@ -51,9 +51,7 @@
         "https://*/*"
       ],
       "js": [
-        "scripts/contentscript.js",
-        "jquery/jquery.min.js",
-        "scripts/dashboard/quote.js"
+        "scripts/contentscript.js"
       ],
       "run_at": "document_end",
       "all_frames": false
