@@ -55,15 +55,44 @@
         <!--This section would have toggle buttons that hide/unhide the other widgets.  -->
 
         <div id="settings-container">
-            <i id='settings-cog' class="fa fa-cog" aria-hidden="true"></i>
-            <div id="settings-data">
-              <ul>
-                  <li>Weather</li>
-                  <li>Todo</li>
-                  <li>Quotes</li>
-              </ul>
+             <!--This div will appear and dissapear on click of gear icon  -->
+            <div id="settings-window">
+              <h3 class="widget-title">Settings</h3>
+              <hr>
+              <table>
+                <tr>
+                  <td>Search Bar</td>
+                  <td>
+                    <div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffSearch" checked>
+                    <label class="onoffswitch-label" for="onoffSearch"></label></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Weather</td>
+                  <td>
+                    <div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffWeather" checked>
+                    <label class="onoffswitch-label" for="onoffWeather"></label></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Quotes</td>
+                  <td>
+                    <div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffQuotes" checked>
+                    <label class="onoffswitch-label" for="onoffQuotes"></label></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Todos</td>
+                  <td>
+                    <div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffTodo" checked>
+                    <label class="onoffswitch-label" for="onoffTodo"></label></div>
+                  </td>
+                </tr>
+              </table>
             </div>
-        </div>
+            <span class="clickable-icon" id="settings-button"><i id='settings-cog' class="fa fa-cog fa-2x" aria-hidden="true"></i></span>
+        </div>   
+
 
     <!-- ======     Quote Generator Widget    ======  -->
     <div id="quote-container">
