@@ -1,38 +1,25 @@
 'use strict';
 
-var latitude;
-var longitude;
-var tempF;
-var weatherId;
+var latitude, longitude, tempF, weatherId;
 
 //checks to see if geolocation is stored in local storage
 window.onload = function() {
-  if (localStorage.getItem('lat') === null){
-    geoFindMe();
-  } else {
-    init();
-  }
-
+  if (localStorage.getItem('lat') === null) geoFindMe();
+  else init();
 };
 
 //geoFindme is the geolocation; will retrieve coordinates
 function geoFindMe() {
-
-  if (!navigator.geolocation){
-    $('#dispCity').text('Unable to retrieve your location');
+  if (!navigator.geolocation)
+    $('#dispCity').text('Unable to retrieve your location'),
     $('#weather-value').text('Turn on location');
-  }
 
   function success(position) {
-
-    //longitude = position.coords.longitude;
-    localStorage.setItem('lat',position.coords.latitude);
-    localStorage.setItem('lon',position.coords.longitude);
-    //latitude  = localStorage.getItem('lat');
+    localStorage.lat = position.coords.latitude;
+    localStorage.lon = position.coords.longitude;
 
     init();
   }
-
 
   function error() {
     $('#dispCity').text('Unable to retrieve your location');
@@ -44,12 +31,12 @@ function geoFindMe() {
 //init after coordinates are recieved
 
 function init() {
-  var api = 'https://api.openweathermap.org/data/2.5/weather?';
-  var key = '&appid=c206c23ffceb3192352454f2000a0b75';
-  var lat = 'lat=' +  localStorage.getItem('lat');
-  var lon = 'lon=' + localStorage.getItem('lon');
-  var unitImp = '&units=imperial'
-  var urlFromIP = api + lat + '&' + lon + key + unitImp;
+  var api = 'https://api.openweathermap.org/data/2.5/weather?',
+  key = '&appid=c206c23ffceb3192352454f2000a0b75',
+  lat = 'lat=' +  localStorage.getItem('lat'),
+  lon = 'lon=' + localStorage.getItem('lon'),
+  unitImp = '&units=imperial',
+  urlFromIP = api + lat + '&' + lon + key + unitImp;
 
   $(document).ready(function() {
     getWeather();
@@ -91,8 +78,6 @@ function init() {
                     }
                 });
             });
-
-
           }
         });
   }
@@ -104,17 +89,16 @@ function init() {
 }
 
 function getIcon(weatherId) {
-  if (weatherId > 199 && weatherId < 233) {
+  if (weatherId > 199 && weatherId < 233)
 		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/thunderstorm.svg"/>');
-	} else if (weatherId > 299 && weatherId < 322) {
+	else if (weatherId > 299 && weatherId < 322)
 		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/drizzle.svg"/>');
-	} else if (weatherId > 499 && weatherId < 532) {
+	else if (weatherId > 499 && weatherId < 532)
 		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/rain.svg"/>');
-	} else if (weatherId > 599 && weatherId < 623) {
+	else if (weatherId > 599 && weatherId < 623)
 		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/snow.svg"/>');
-	} else if (weatherId === 800) {
+	else if (weatherId === 800)
 		$('#weather-container').prepend('<img id="weather-icon" src="images/icons/clear.svg"/>');
-	} else if (weatherId > 800 && weatherId < 805 ) {
+	else if (weatherId > 800 && weatherId < 805 )
     $('#weather-container').prepend('<img id="weather-icon" src="images/icons/Cloud.svg"/>');
-  }
 }
