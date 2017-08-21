@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>CampDash</title>
     <!--css link  -->
@@ -27,9 +26,9 @@
 
     <!-- ======     Weather Widget    ======  -->
         <div id="weather-container">
-                <span id='weather-value'> 79°</span>
+            <span id='weather-value'></span>
             <div id="location">
-                <span id="dispCity">Seattle</span>
+                <span id="dispCity"></span>
             </div>
         </div>
 
@@ -40,9 +39,9 @@
             <div id='focus-container'>
               <span id='focus-prompt'>What is your main focus today?</span>
               <form id="focus-form">
-                <input type="text" id="focus-input" autocomplete="off" />
+                <input id="focus-input" autocomplete="off">
                 <div id="focusLi">
-                  <input id='focusCheck' type='checkbox' autocomplete='off' />
+                  <input id='focusCheck' type='checkbox' autocomplete='off'>
                   <label id='focus-label' for='#focusCheck'></label><i id='close-button' class='fa fa-close'></i>
                 </div>
               </form>
@@ -93,7 +92,6 @@
             <span class="clickable-icon" id="settings-button"><i id='settings-cog' class="fa fa-cog fa-2x" aria-hidden="true"></i></span>
         </div>   
 
-
     <!-- ======     Quote Generator Widget    ======  -->
     <div id="quote-container">
       <p id="quote"></p>
@@ -105,21 +103,21 @@
     <div id="todo-container">
       <span>Todo</span>
       <div class="todo-popup">
-        <input id="newTodo" placeholder="Enter A Todo"/>
+        <input id="newTodo" placeholder="Enter A Todo">
       </div>
     </div>
   </div>
 </div>
   <!-- =====    jQuery link    ===== -->
-  <script type='text/javascript' src='./jquery/jquery.js'></script>
+  <script src='./jquery/jquery.js'></script>
 
 	<!-- ======     Javascript link    ======  -->
-	<script type='text/javascript' src='scripts/dashboard/dashboard.js'></script>
-  <script type='text/javascript' src='scripts/dashboard/weather.js'></script>
-  <script type='text/javascript' src='scripts/dashboard/center.js'></script>
-  <script type='text/javascript' src='scripts/dashboard/settings.js'></script>
-  <script type='text/javascript' src='scripts/dashboard/quote.js'></script>
-  <script type='text/javascript' src='scripts/dashboard/todo.js'></script>
+	<script src='scripts/dashboard/dashboard.js'></script>
+  <script src='scripts/dashboard/weather.js'></script>
+  <script src='scripts/dashboard/center.js'></script>
+  <script src='scripts/dashboard/settings.js'></script>
+  <script src='scripts/dashboard/quote.js'></script>
+  <script src='scripts/dashboard/todo.js'></script>
   </div>
 </body>
 </html>
