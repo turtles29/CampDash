@@ -24,16 +24,16 @@ function updateClock() {
 updateClock();
 
 // Name stuff
+const nameLocation = document.querySelector('#username');
+
 function getName() {
   let name = localStorage.getItem('name');
   if (name == null) {
-    /*This is where we will insert FCC API to add user name*/
-    let myNameIs = prompt('What is your name?');
+    const myNameIs = prompt('What is your name?');
     localStorage.setItem('name', myNameIs);
     name = localStorage.getItem('name');
   }
 
-  let nameLocation = document.querySelector('#username');
   nameLocation.innerHTML = name;
 }
 getName();
@@ -47,7 +47,7 @@ const focusLabel = document.querySelector('#focus-label');
 const focusClose = document.querySelector('#close-button');
 
 $(document).ready(function() {
-  let savedFocus = localStorage.getItem('focus');
+  const savedFocus = localStorage.getItem('focus');
   if (!(savedFocus == '' || savedFocus == null)) {
     focusContainer.style.display = 'inline-block';
     focusLabel.innerHTML = (savedFocus + ' ');
@@ -61,7 +61,7 @@ focusForm.addEventListener('submit', function(e) {
   e.preventDefault();
   localStorage.setItem('focus', focusInput.value);
 
-  let focus = localStorage.getItem('focus');
+  const focus = localStorage.getItem('focus');
   focusLabel.innerHTML = (focus + ' ');
 
   // change form

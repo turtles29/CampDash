@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 $mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-
 * {
   font-family: $mainFont;
 }
@@ -19,12 +18,7 @@ body {
 }
 
 .container {
-  padding: 20px;
   color: white;
-}
-
-.bg {
-  height: 100%;
 }
 
 #weather-container {

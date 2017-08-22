@@ -3,18 +3,18 @@ const quoteContainer = document.querySelector('#quote-container');
 const quoteTar = document.querySelector('#quote');
 const authorTar = document.querySelector('#author');
 function loadQuote() {
-  $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=")
+  $.getJSON('https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=')
     .done(update)
     .fail(handleErr);
 };
 
 $('#quoteAJAX').click(function() {
   $.ajax({
-      url: "https://api.forismatic.com/api/1.0/",
-      dataType: "json",
+      url: 'https://api.forismatic.com/api/1.0/',
+      dataType: 'json',
       data: {
-        method: "getQuote",
-        format: "json"
+        method: 'getQuote',
+        format: 'json'
       }
     })
     .done(update)
@@ -22,13 +22,13 @@ $('#quoteAJAX').click(function() {
 });
 
 function update(response) {
-	const author = response["quoteAuthor"] != '' ? response["quoteAuthor"] : "Unknown";
-  quoteTar.innerHTML = `"${response["quoteText"]}"`;
+	const author = response['quoteAuthor'] != '' ? response['quoteAuthor'] : 'Unknown';
+  quoteTar.innerHTML = response['quoteText'];
 	authorTar.innerHTML = `- ${author}`;
 }
 
 function handleErr(jqxhr, textStatus, err) {
-  console.log("Request Failed: " + textStatus + ", " + err);
+  console.log('Request Failed: ' + textStatus + ', ' + err);
 }
 
 loadQuote();

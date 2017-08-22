@@ -30,5 +30,6 @@ window.addEventListener('load', function() {
     linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)),
     ${bg}
     `;
+  body.style.backgroundSize = 'cover';
   window.setTimeout(function() {body.style.opacity = 1}, 1000);
 });
