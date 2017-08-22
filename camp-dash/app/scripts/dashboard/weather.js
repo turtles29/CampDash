@@ -81,6 +81,6 @@ function getIcon(id) {
 	else if (id > 499 && id < 532) icon = 'rain';
 	else if (id > 599 && id < 623) icon = 'snow';
 	else if (id === 800) icon = 'clear';
-	else if (id > 800 && id < 805 ) icon = 'cloud';
+	else if (id > 800 && id < 805 ) icon = 'cloudy';
   $('#weather-container').prepend('<img id="weather-icon" src="images/icons/' + icon + '.svg"/>');
 }
