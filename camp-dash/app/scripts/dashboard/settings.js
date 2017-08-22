@@ -2,7 +2,7 @@
 
 // $('settings-button').click(function() {
 //     if ($('settings-window').style.display === 'none') {
-        
+
 //     }
 // });
 $( document ).ready(function() {
@@ -27,7 +27,7 @@ function toggleSearch() {
     } else {
         $('#search-container').hide();
     }
-}); 
+});
 }
 
 function toggleWeather() {
@@ -37,7 +37,7 @@ function toggleWeather() {
     } else {
         $('#weather-container').hide();
     }
-}); 
+});
 }
 
 function toggleQuotes() {
@@ -47,7 +47,7 @@ function toggleQuotes() {
     } else {
         $('#quote-container').hide();
     }
-}); 
+});
 }
 
 function toggleTodo() {
@@ -57,5 +57,5 @@ function toggleTodo() {
     } else {
         $('#todo-container').hide();
     }
-}); 
+});
 }
