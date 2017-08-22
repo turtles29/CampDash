@@ -1,35 +1,16 @@
 'use strict';
 
-const body = document.querySelector('body');
-const h = window.innerHeight;
-const w = window.innerWidth;
+const body = document.body, h = innerHeight, w = innerWidth;
+let hr = new Date().getHours(), bg;
 
-const date = new Date();
-let hr = date.getHours();
-let timeOfDay = 'deep';
-
-if (hr <= 4 || hr >= 22) {
-  timeOfDay = 'midnight';
-} else if (hr >= 4 && hr < 8) {
-  timeOfDay = 'sunrise';
-} else if (hr >= 8 && hr < 12) {
-  timeOfDay = 'morning';
-} else if (hr >= 12 && hr < 16) {
-  timeOfDay = 'ocean';
-} else if (hr >= 16 && hr < 19) {
-  timeOfDay = 'evening';
-} else if (hr >= 19 && hr < 22) {
-  timeOfDay = 'sunset';
-}
-
-
-const bg = `url("https://source.unsplash.com/${w}x${h}?${timeOfDay}")`;
+if (hr <= 4 || hr >= 22) bg = 'midnight';
+else if (hr > 4 && hr < 8) bg = 'sunrise';
+else if (hr >= 8 && hr < 12) bg = 'morning';
+else if (hr >= 12 && hr < 16) bg = 'ocean';
+else if (hr >= 16 && hr < 19) bg = 'evening';
+else bg = 'sunset';
 
 window.addEventListener('load', function() {
-  body.style.background = `
-    linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)),
-    ${bg}
-    `;
-  body.style.backgroundSize = 'cover';
-  window.setTimeout(function() {body.style.opacity = 1}, 1000);
+  body.style.background = `url("https://source.unsplash.com/${w}x${h}?${bg}") center/cover`;
+  setTimeout(function(){body.style.opacity = 1}, 1000);
 });
