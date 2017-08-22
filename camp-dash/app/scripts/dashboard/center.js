@@ -1,77 +1,51 @@
 'use strict';
 
-// Clock stuff
+// Clock
 function updateClock() {
   let now = new Date(),
   time = [now.getHours(), now.getMinutes()/*, now.getSeconds()*/];
   time = time.map((unit) => unit = unit < 10 ? `0${unit}` : `${unit}`);
 
-  let currentTime = time.join(':'),
-  clockLocation = document.querySelector('#time'),
+  let greeting = $('#greeting');
+  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) greeting.html('Good morning');
+  else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) greeting.html('Good afternoon');
+  else greeting.html('Good evening');
 
-  greeting = document.querySelector('#greeting');
-  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) {
-    greeting.innerHTML = 'Good morning';
-  } else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) {
-    greeting.innerHTML = 'Good afternoon';
-  } else {
-    greeting.innerHTML = 'Good evening'
-  }
-
-  clockLocation.innerText = currentTime;
+  $('#time').text(time.join(':'));
   setTimeout(updateClock, 1000);
 }
 updateClock();
 
-// Name stuff
-const nameLocation = document.querySelector('#username');
-
-function getName() {
-  let name = localStorage.getItem('name');
-  if (name == null) {
-    const myNameIs = prompt('What is your name?');
-    localStorage.setItem('name', myNameIs);
-    name = localStorage.getItem('name');
-  }
-
-  nameLocation.innerHTML = name;
+// Name
+function setName() {
+  if (!localStorage.name) localStorage.name = prompt('What is your name?');
+  $('#username').html(localStorage.name);
 }
-getName();
+setName();
 
-// Focus stuff
-const focusForm = document.querySelector('#focus-form');
-const focusInput = document.querySelector('#focus-input');
-const focusContainer = document.querySelector('#focusLi');
-const focusCheckbox = document.querySelector('#focusCheck');
-const focusLabel = document.querySelector('#focus-label');
-const focusClose = document.querySelector('#close-button');
+// Focus
+var focusInput = $('#focus-input'), focusContainer = $('#focusLi'),
+focusLabel = $('#focus-label');
 
 $(document).ready(function() {
-  const savedFocus = localStorage.getItem('focus');
-  if (!(savedFocus == '' || savedFocus == null)) {
-    focusContainer.style.display = 'inline-block';
-    focusLabel.innerHTML = (savedFocus + ' ');
+  if (localStorage.focus)
+    focusContainer.css('display', 'inline-block'),
+    focusLabel.html(localStorage.focus + ' ');
+  else focusInput.css('display', 'inline-block');
+}),
 
-  } else {
-    focusInput.style.display = 'inline-block';
-  }
-})
-
-focusForm.addEventListener('submit', function(e) {
+$('#focus-form').submit(function(e) {
   e.preventDefault();
-  localStorage.setItem('focus', focusInput.value);
+  localStorage.focus = focusInput.val();
+  focusLabel.html(localStorage.focus + ' ');
 
-  const focus = localStorage.getItem('focus');
-  focusLabel.innerHTML = (focus + ' ');
+  focusInput.hide();
+  focusContainer.css('display', 'inline-block');
+}),
 
-  // change form
-  focusInput.style.display = 'none';
-  focusContainer.style.display = 'inline-block';
-});
+$('#close-button').click(function() {
+  localStorage.focus = '';
 
-focusClose.addEventListener('click', function(e) {
-  localStorage.setItem('focus', '');
-
-  focusContainer.style.display = 'none';
-  focusInput.style.display = 'inline-block';
+  focusContainer.hide();
+  focusInput.css('display', 'inline-block');
 });
