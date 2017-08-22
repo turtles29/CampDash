@@ -19,7 +19,7 @@
             3. Click the blue "Clone" button in GitHub Desktop.
 
 3. Add original project upstream
-    * Set up a remote that points to the original repo so you can pull any chances to your local repo.  
+    * Set up a remote that points to the original repo so you can pull any changes to your local repo.  
 ```git remote add upstream https://github.com/turtles29/CampDash```
 
 4. Create branches for edits and push to your forked repo
