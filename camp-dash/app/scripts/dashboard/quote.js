@@ -1,25 +1,27 @@
 'use strict';
-var quoteContainer = $('#quote-container'), quoteTar = $('#quote'), authorTar = $('#author');
+var quoteContainer = document.querySelector('#quote-container'),
+quoteTar = document.querySelector('#quote'),
+authorTar = document.querySelector('#author');
 function loadQuote() {
   $.getJSON('https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=')
     .done(update);
 };
 
 function update(response) {
-  quoteTar.html(response['quoteText']),
-	authorTar.html("- " + (response['quoteAuthor'] != '' ? response['quoteAuthor'] : 'Unknown'));
+  quoteTar.innerHTML = response['quoteText'],
+	authorTar.innerHTML = "- " + (response['quoteAuthor'] != '' ? response['quoteAuthor'] : 'Unknown');
 }
 
 loadQuote();
 
-quoteContainer.mouseover(function() {
-  quoteTar.css('bottom', '5px');
-  authorTar.css('bottom', '15px');
-  authorTar.css('opacity', 1);
+quoteContainer.addEventListener('mouseover', function() {
+  quoteTar.style.bottom = '5px';
+  authorTar.style.bottom = '15px';
+  authorTar.style.opacity = 1;
 });
 
-quoteContainer.mouseleave(function() {
-  quoteTar.css('bottom', 0);
-  authorTar.css('bottom', '35px');
-  authorTar.css('opacity', 0);
+quoteContainer.addEventListener('mouseleave', function() {
+  quoteTar.style.bottom = 0;
+  authorTar.style.bottom = '35px';
+  authorTar.style.opacity = 0;
 });
