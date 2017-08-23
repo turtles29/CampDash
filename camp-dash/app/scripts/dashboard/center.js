@@ -1,76 +1,51 @@
 'use strict';
 
-// Clock stuff
+// Clock
 function updateClock() {
   let now = new Date(),
   time = [now.getHours(), now.getMinutes()/*, now.getSeconds()*/];
   time = time.map((unit) => unit = unit < 10 ? `0${unit}` : `${unit}`);
 
-  let currentTime = time.join(':'),
-  clockLocation = document.querySelector('#time'),
+  let greeting = document.querySelector('#greeting');
+  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) greeting.innerHTML = 'Good morning';
+  else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) greeting.innerHTML = 'Good afternoon';
+  else greeting.innerHTML = 'Good evening';
 
-  greeting = document.querySelector('#greeting');
-  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) {
-    greeting.innerHTML = 'Good morning';
-  } else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) {
-    greeting.innerHTML = 'Good afternoon';
-  } else {
-    greeting.innerHTML = 'Good evening'
-  }
-
-  clockLocation.innerText = currentTime;
+  document.querySelector('#time').textContent = time.join(':');
   setTimeout(updateClock, 1000);
 }
 updateClock();
 
-// Name stuff
-const nameLocation = document.querySelector('#username');
-
-function getName() {
-  let name = localStorage.getItem('name');
-  if (name == null) {
-    const myNameIs = prompt('What is your name?');
-    localStorage.setItem('name', myNameIs);
-    name = localStorage.getItem('name');
-  }
-
-  nameLocation.innerHTML = name;
+// Name
+function setName() {
+  if (!localStorage.name) localStorage.name = prompt('What is your name?');
+  document.querySelector('#username').innerHTML = localStorage.name;
 }
-getName();
+setName();
 
-// Focus stuff
-const focusForm = document.querySelector('#focus-form');
-const focusInput = document.querySelector('#focus-input');
-const focusContainer = document.querySelector('#focusLi');
-const focusCheckbox = document.querySelector('#focusCheck');
-const focusLabel = document.querySelector('#focus-label');
-const focusClose = document.querySelector('#close-button');
+// Focus
+var focusInput = document.querySelector('#focus-input'),
+focusContainer = document.querySelector('#focusLi'),
+focusLabel = document.querySelector('#focus-label');
 
 $(document).ready(function() {
-  const savedFocus = localStorage.getItem('focus');
-  if (!(savedFocus == '' || savedFocus == null)) {
-    focusContainer.style.display = 'inline-block';
-    focusLabel.innerHTML = (savedFocus + ' ');
+  if (localStorage.focus)
+    focusContainer.style.display = 'inline-block',
+    focusLabel.innerHTML = localStorage.focus + ' ';
+  else focusInput.style.display = 'inline-block';
+}),
 
-  } else {
-    focusInput.style.display = 'inline-block';
-  }
-})
-
-focusForm.addEventListener('submit', function(e) {
+document.querySelector('#focus-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  localStorage.setItem('focus', focusInput.value);
+  localStorage.focus = focusInput.value;
+  focusLabel.innerHTML = localStorage.focus + ' ';
 
-  const focus = localStorage.getItem('focus');
-  focusLabel.innerHTML = (focus + ' ');
-
-  // change form
   focusInput.style.display = 'none';
   focusContainer.style.display = 'inline-block';
-});
+}),
 
-focusClose.addEventListener('click', function(e) {
-  localStorage.setItem('focus', '');
+document.querySelector('#close-button').addEventListener('click', function() {
+  localStorage.focus = '';
 
   focusContainer.style.display = 'none';
   focusInput.style.display = 'inline-block';

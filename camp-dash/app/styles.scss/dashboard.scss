@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-$mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-* {
-  font-family: $mainFont;
-}
+* { font-family: "Helvetica Neue", sans-serif }
 
 body, html {
   height: 100%;
@@ -17,19 +12,16 @@ body {
   transition: 1s;
 }
 
-.container {
-  color: white;
-}
+.container { color: #fff }
 
 #weather-container {
   text-align: left;
-  text-shadow: 2px 2px 50px black;
+  text-shadow: 2px 2px 50px #000;
   position: absolute;
   top: 0;
   right: 0;
-  padding-top: 1%;
-  padding-right: 1%;
-  svg, img {
+  padding: 1% 1% 0 0;
+  img {
     filter: invert(100%);
     -webkit-filter: invert(100%);
     display: inline-block;
@@ -38,14 +30,12 @@ body {
     max-height:300px;
     height: auto;
   }
-
 }
 #search-container {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 1%;
-  padding-left: 1%;
+  padding: 1% 0 0 1%;
     input {
     border: solid 1px #ccc;
     padding: 9px 7px;
@@ -55,29 +45,23 @@ body {
     font-size: 100%;
     outline: none;
 
-    -webkit-border-radius: 10em;
-    -moz-border-radius: 10em;
     border-radius: 10em;
 
-    -webkit-transition: all .7s;
-    -moz-transition: all .7s;
     transition: all .7s;
 
-      .element:before{
+      .element:before {
       font-family: FontAwesome;
       content: "\f002";
       position: relative;
       left: -5px;
     }
-      &:hover{
+    &:hover { background-color: #fff }
+    &:focus {
+      width: 200px;
+      padding-left: 15%;
+      color: #000;
       background-color: #fff;
-    }
-    &:focus{
-    width: 200px;
-    padding-left: 15%;
-    color: #000;
-    background-color: #fff;
-    cursor: auto;
+      cursor: auto;
     }
   }
 }
@@ -97,29 +81,21 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     width: 200px;
     height: 200px;
-    h3{
+    h3 {
       text-align: center;
       padding-top: 20px;
     }
-    hr{
-      width: 80%;
-    }
-    table{
+    hr { width: 80% }
+    table {
       margin: auto;
-      td{
-        padding: 3px 15px;
-      }
+      td { padding: 3px 15px }
     }
     .onoffswitch {
-    position: relative;
-    width: 40px;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select: none;
+      position: relative;
+      width: 40px;
+      user-select:none;
     }
-    .onoffswitch-checkbox {
-        display: none;
-    }
+    .onoffswitch-checkbox { display: none }
     .onoffswitch-label {
         display: block;
         overflow: hidden;
@@ -135,7 +111,7 @@ body {
           content: "";
           display: block;
           width: 21px;
-          margin: 0px;
+          margin: 0;
           background: #FFFFFF;
           position: absolute;
           top: 0;
@@ -154,7 +130,7 @@ body {
       border-color: #D2E9FC;
     }
     .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-        right: 0px;
+        right: 0;
     }
   }
 }
@@ -167,15 +143,9 @@ body {
 }
 #quote-container{
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-
-// Page styles ( for generally applied styling )
-
-.clickable-icon {
-  cursor: pointer;
 }
 
 // Search Styles
@@ -186,15 +156,13 @@ body {
 }
 
 // Weather Styles
-#weather-value {
-  font-size: 30px;
-}
+#weather-value { font-size: 30px }
 
-#dispCity {
-  color: rgba(255, 255, 255, 0.5);
-}
+#dispCity { color: rgba(255, 255, 255, 0.5) }
 
 // Center Time, Greeting, and Focus Styles
+#time { font-size: 150px }
+
 #greeting-container {
   text-align: center;
   text-shadow: 0 10px 60px rgba(0,0,0,0.7);
@@ -216,33 +184,23 @@ body {
   top: 50px;
 }
 
-// time
-#time {
-  font-size: 150px;
-}
-
 #focus-input {
   appearance: none;
   background: none;
   border: none;
   border-bottom: 2px solid rgba(255, 255, 255, .7);
-  color: white;
+  color: #fff;
   outline: none;
   padding: none;
   font-size: 1.5em;
   text-align: center;
   transition: border-bottom 0.4s;
   width: 100%;
-  &:focus, &:active {
-    border-bottom: 2px solid rgba(255, 255, 255, 1);
-  }
+  &:focus, &:active { border-bottom: 2px solid rgba(255, 255, 255, 1) }
   display: none;
 }
 
-
-#focusLi {
-  display: none;
-}
+#focusLi { display: none }
 
 #focusCheck {
   outline: none;
@@ -253,9 +211,7 @@ body {
   }
 }
 
-#focus-label {
-  font-size: 1.5em;
-}
+#focus-label { font-size: 1.5em }
 
 #close-button {
   border: 2px solid rgba(255, 255, 255, 0);
@@ -274,14 +230,12 @@ body {
 }
 
 // Settings Styles
-#settings-cog {
-  cursor: pointer;
-}
+#settings-cog { cursor: pointer }
 
 // Quote Generator Styles
 #quote {
   font-size: 15px;
-  text-shadow: 2px 2px 20px black;
+  text-shadow: 2px 2px 20px #000;
   text-align: center;
   position: relative;
   bottom: 0;
@@ -290,14 +244,13 @@ body {
 
 #author {
   font-size: 13px;
-  text-shadow: 2px 2px 20px black;
+  text-shadow: 2px 2px 20px #000;
   text-align: center;
   position: relative;
   bottom: 35px;
   opacity: 0;
   transition: 0.2s;
 }
+
 // Todo Widget
-.todo-popup {
-  display: none;
-}
+.todo-popup { display: none }
