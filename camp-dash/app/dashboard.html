@@ -98,13 +98,25 @@
     <!-- ======     Todo Widget    ======  -->
 
     <div id="todo-container">
-      <span>Todo</span>
       <div class="todo-popup">
-        <input id="newTodo" placeholder="Enter A Todo">
+        <ul id='todo-list'></ul>
+        <input id='clear-todo-btn' type='button' value='Clear Completed'>
+        <br>
+        <input id="newTodo" type='text' placeholder="Enter A Todo">
       </div>
+      <span id='todo-button'>Todo</span>
     </div>
   </div>
 </div>
+<!--hidden from viewer  -->
+ <div id='templates' class='templates'>
+    <li class='todo-list-item' data-index='-1'>
+      <label>
+        <input type='checkbox'>
+        <span>Temporary todo item.</span>
+      </label>
+    </li>
+  </div>
   <!-- =====    jQuery link    ===== -->
   <script src='/jquery/jquery.js'></script>
 
