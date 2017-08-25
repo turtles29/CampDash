@@ -169,7 +169,7 @@ body {
     width: 300px;
     height: auto; 
   }
-  input[type='text'] {
+  .text-input {
     font-size: 12px;
     width: 100%;
     padding: 8px 18px 8px 12px;
@@ -199,11 +199,11 @@ body {
       }
     }
   }
-  input[type='checkbox'] {
+  .todo-checkbox {
     cursor: pointer;
 	  position: relative;
   }
-  input[type='button']{
+  .clear-todo{
     width: 100%;
     background-color: rgba(255, 0, 0, .1);
     color: white;
