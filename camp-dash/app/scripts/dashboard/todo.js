@@ -2,7 +2,7 @@
 $( document ).ready(function() {
     //hide Todo popup
     $('.todo-popup').hide();
-    
+
     //call toggle todo popup
     toggleTodoDiv();
 
@@ -32,7 +32,7 @@ $( document ).ready(function() {
         todos.push(obj);
     }
 
-    //mark a todo as done 
+    //mark a todo as done
     function checkTodoAsDone(index) {
         var obj = todos[index];
         obj.isDone = true;
@@ -40,9 +40,9 @@ $( document ).ready(function() {
         displayTodoItems(todos);
     }
 
-    //mark a todo as incomplete 
+    //mark a todo as incomplete
     function changeTodoAsIncomplete() {
-        var obj = todos[index]; 
+        var obj = todos[index];
         obj.isDone = false;
         storeTodos();
         displayTodoItems(todos);
@@ -87,7 +87,7 @@ $( document ).ready(function() {
             //set completed class
             if (isTodoCompleted(todos[i])) {
                 newTodoItemHtm.addClass('done');
-                newTodoItemHtm.find("input[type='checkbox']").prop('checked', true);
+                newTodoItemHtm.find('input[type="checkbox"]').prop('checked', true);
             }
 
             // add the new list item to the list, finally.
@@ -100,13 +100,13 @@ $( document ).ready(function() {
     function createTodo() {
     // get the string value of input todo
     var newTodo = $('#newTodo').val();
-    
-    pushToTodos(newTodo);  
-    
+
+    pushToTodos(newTodo);
+
     displayTodoItems(todos);
-    
+
     storeTodos();
-    
+
     // empty the input feild
     $('#newTodo').val('');
     }
@@ -123,13 +123,13 @@ $( document ).ready(function() {
     var checkbox = $(this);
     var isChecked = checkbox.is(':checked');
     var index = checkbox.parents('li').data('index');
-    
+
     if (isChecked) {
         checkTodoAsDone(index);
     } else {
         changeTodoAsIncomplete(index);
     }
-    
+
     });
 
     // handle the button to clear all completed todos
