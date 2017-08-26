@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-$mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 * {
-  font-family: $mainFont;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body, html {
@@ -10,11 +9,6 @@ body, html {
   overflow: hidden;
   margin: 0;
   padding: 0;
-}
-
-body {
-  opacity: 0;
-  transition: 1s;
 }
 
 .container {
@@ -167,7 +161,7 @@ body {
   .todo-popup{
     background-color: rgba(0, 0, 0, 0.3);
     width: 300px;
-    height: auto; 
+    height: auto;
   }
   .text-input {
     font-size: 12px;

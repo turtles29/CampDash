@@ -1,77 +1,68 @@
 'use strict';
+// time
+const clockLocation = document.querySelector('#time'),
+greeting = document.querySelector('#greeting'),
+// name
+name = document.querySelector('#username'),
+// form
+fForm = document.querySelector('#focus-form'),
+fInput = document.querySelector('#focus-input'),
+fContainer = document.querySelector('#focusLi'),
+fCheckbox = document.querySelector('#focusCheck'),
+fLabel = document.querySelector('#focus-label'),
+fClose = document.querySelector('#close-button');
 
 // Clock stuff
 function updateClock() {
   let now = new Date(),
-  time = [now.getHours(), now.getMinutes()/*, now.getSeconds()*/];
+  time = [now.getHours(), now.getMinutes()];
   time = time.map((unit) => unit = unit < 10 ? `0${unit}` : `${unit}`);
 
-  let currentTime = time.join(':'),
-  clockLocation = document.querySelector('#time'),
+  greeting.innerHTML = 'Good evening'
+  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) greeting.innerHTML = 'Good morning';
+  if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) greeting.innerHTML = 'Good afternoon';
 
-  greeting = document.querySelector('#greeting');
-  if (time[0] < 12/*noon*/ && time[0] > 3/*am*/) {
-    greeting.innerHTML = 'Good morning';
-  } else if (time[0] > 12/*noon*/ && time[0] < 16/*4 pm*/) {
-    greeting.innerHTML = 'Good afternoon';
-  } else {
-    greeting.innerHTML = 'Good evening'
-  }
-
-  clockLocation.innerText = currentTime;
+  clockLocation.innerText = time.join(':');
   setTimeout(updateClock, 1000);
+
+  let timeOfDay = 'deep';
+  if (hr <= 4 || hr >= 22) timeOfDay = 'midnight';
+  if (hr > 4 && hr < 8) timeOfDay = 'sunrise';
+  if (hr >= 8 && hr < 12) timeOfDay = 'morning';
+  if (hr >= 12 && hr < 16) timeOfDay = 'ocean';
+  if (hr >= 16 && hr < 19) timeOfDay = 'evening';
+  if (hr >= 19 && hr < 22) timeOfDay = 'sunset';
+  return timeOfDay;
 }
-updateClock();
 
 // Name stuff
-const nameLocation = document.querySelector('#username');
-
 function getName() {
-  let name = localStorage.getItem('name');
-  if (name == null) {
-    const myNameIs = prompt('What is your name?');
-    localStorage.setItem('name', myNameIs);
-    name = localStorage.getItem('name');
-  }
-
-  nameLocation.innerHTML = name;
+  if (!localStorage.name) localStorage.name = prompt('What is your name?');
+  name.innerHTML = localStorage.name;
 }
-getName();
 
-// Focus stuff
-const focusForm = document.querySelector('#focus-form');
-const focusInput = document.querySelector('#focus-input');
-const focusContainer = document.querySelector('#focusLi');
-const focusCheckbox = document.querySelector('#focusCheck');
-const focusLabel = document.querySelector('#focus-label');
-const focusClose = document.querySelector('#close-button');
-
-$(document).ready(function() {
-  const savedFocus = localStorage.getItem('focus');
-  if (!(savedFocus == '' || savedFocus == null)) {
-    focusContainer.style.display = 'inline-block';
-    focusLabel.innerHTML = (savedFocus + ' ');
-
+document.addEventListener('DOMContentLoaded', function(event) {
+  getName();
+  // Focus stuff
+  if (localStorage.focus) {
+    fContainer.style.display = 'inline-block';
+    fLabel.innerHTML = (localStorage.focus + ' ');
   } else {
-    focusInput.style.display = 'inline-block';
+    fInput.style.display = 'inline-block';
   }
-})
 
-focusForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  localStorage.setItem('focus', focusInput.value);
+  fForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    localStorage.focus = fInput.value;
+    fLabel.innerHTML = (localStorage.focus + ' ');
+    // change form
+    fInput.style.display = 'none';
+    fContainer.style.display = 'inline-block';
+  });
 
-  const focus = localStorage.getItem('focus');
-  focusLabel.innerHTML = (focus + ' ');
-
-  // change form
-  focusInput.style.display = 'none';
-  focusContainer.style.display = 'inline-block';
-});
-
-focusClose.addEventListener('click', function(e) {
-  localStorage.setItem('focus', '');
-
-  focusContainer.style.display = 'none';
-  focusInput.style.display = 'inline-block';
+  fClose.addEventListener('click', function(e) {
+    localStorage.focus = '';
+    fContainer.style.display = 'none';
+    fInput.style.display = 'inline-block';
+  });
 });
