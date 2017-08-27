@@ -2,8 +2,6 @@
 const date = new Date();
 let hr = date.getHours(), timeQuery = updateClock();
 
-
-
 window.addEventListener('load', function () {
   const bg = document.querySelector('body').style,
   img = 'https://source.unsplash.com/1280x680?';
