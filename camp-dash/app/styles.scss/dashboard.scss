@@ -354,3 +354,15 @@ body, html {
 #todo-button{
       float: right;
 }
+
+.close-t-button {
+  float: right;
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, .1);
+  color: white;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 100%;
+  font-size: 14px;
+}
