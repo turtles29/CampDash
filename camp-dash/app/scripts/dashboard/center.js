@@ -27,11 +27,11 @@ function updateClock() {
 
   let timeOfDay = 'deep';
   if (hr <= 4 || hr >= 22) timeOfDay = 'midnight';
-  if (hr > 4 && hr < 8) timeOfDay = 'sunrise';
-  if (hr >= 8 && hr < 12) timeOfDay = 'morning';
-  if (hr >= 12 && hr < 16) timeOfDay = 'ocean';
-  if (hr >= 16 && hr < 19) timeOfDay = 'evening';
-  if (hr >= 19 && hr < 22) timeOfDay = 'sunset';
+  else if (hr > 4 && hr < 8) timeOfDay = 'sunrise';
+  else if (hr >= 8 && hr < 12) timeOfDay = 'morning';
+  else if (hr >= 12 && hr < 16) timeOfDay = 'ocean';
+  else if (hr >= 16 && hr < 19) timeOfDay = 'evening';
+  else if (hr >= 19 && hr < 22) timeOfDay = 'sunset';
   return timeOfDay;
 }
 
