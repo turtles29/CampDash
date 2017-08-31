@@ -28,7 +28,6 @@ $( document ).ready(function() {
             isDone: false,
             value: value
         };
-        console.log(todos, obj);
         todos.push(obj);
     }
 
@@ -41,7 +40,7 @@ $( document ).ready(function() {
     }
 
     //mark a todo as incomplete
-    function changeTodoAsIncomplete() {
+    function changeTodoAsIncomplete(index) {
         var obj = todos[index];
         obj.isDone = false;
         storeTodos();
@@ -88,7 +87,7 @@ $( document ).ready(function() {
             if (isTodoCompleted(todos[i])) {
                 newTodoItemHtm.addClass('done');
                 newTodoItemHtm.find('input[type="checkbox"]').prop('checked', true);
-            }
+            } 
 
             // add the new list item to the list, finally.
             $('#todo-list').append(newTodoItemHtm);
@@ -139,25 +138,21 @@ $( document ).ready(function() {
     displayTodoItems(todos);
     });
 
-    //remove a todo list item by pressing x
-    $('ul').on('click', '.close-t-button', function(event){
+      //remove a todo list item by pressing x
+      $('ul').on('click', '.close-t-button', function(event){
         var clickedTaskElement = $(event.target).parent();
-        var selectedTaskId = $(this).attr('class');
-        var index = todos.findIndex(function(e){
-            return e.id === selectedTaskId;
-        });
+        var clickedTaskIndex = clickedTaskElement.parent();
+        var index = $(clickedTaskIndex).index();
+
         $(this).parent().fadeOut(400, function() {
-                if (index === -1) {
-                    console.log(index);
-                    todos.splice(index, 1);  
+                if (index != -1) {
+                    todos.splice(index, 1); 
                     clickedTaskElement.parent().remove();
                     storeTodos();
                 }
-            });
-            console.log(todos);
-            event.stopPropagation();
+        });
+        event.stopPropagation();
     });
-
 
     // Allow pressing ENTER to create new todo from the input
     $('#newTodo').on('keyup', function(event){
